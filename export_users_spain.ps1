@@ -9,8 +9,8 @@ Connect-MsolService
 $users = Get-MsolUser -All -Country Spain
 
 # Create a new CSV file
-$fichero = New-Item c:\Temp\usuarios2.csv -type file -force
-Add-Content $fichero """Username"",""Name"""
+$file = New-Item c:\Temp\users.csv -type file -force
+Add-Content $file """Username"",""Name"""
 foreach ( $user in $users ) {
-    Add-Content $fichero """$($usuario.UserPrincipalName)"",""$($usuario.DisplayName)"""
+    Add-Content $file """$($user.UserPrincipalName)"",""$($user.DisplayName)"""
 }
